@@ -65,3 +65,5 @@ gem 'sorcery'
 
 gem 'slim-rails'
 gem 'html2slim'
+
+gem 'annotate'
