@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # ループでまとめて作成
-20.times do |i|
-  User.create(email:"aaa#{i+1}@example.com", password:"aaa")
-end
+# 20.times do |i|
+#   User.create(email:"aaa#{i+1}@example.com", password:"aaa")
+# end
 
 20.times do |i|
   Post.create(title:"aaa #{i+1}", description:"aaa", user_id:"#{i+1}")

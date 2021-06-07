@@ -7,7 +7,7 @@
 #  title       :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  user_id     :bigint
 #
 class Post < ApplicationRecord
 end

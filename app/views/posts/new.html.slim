@@ -1,0 +1,13 @@
+h1 投稿の新規登録
+
+.nav.justify-content-end
+  = link_to '一覧', posts_path, class: 'nav-link'
+
+= form_with model: @posts, local: true do |f|
+  .form-group
+    = f.label :title
+    = f.text_field :title, class: 'form-control', id: 'post_name'
+  .form-group
+    = f.label :description
+    = f.text_area :description, rows:5, class: 'form-control', id: 'post_description'
+  = f.submit nil, class: 'btn btn-primary'
