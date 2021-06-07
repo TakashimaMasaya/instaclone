@@ -1,1 +1,19 @@
-h1 posts
+h1 回答一覧
+
+= link_to '新規登録', new_post_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Post.human_attribute_name(:title)
+      th
+      th
+      th
+  tbody
+    - @posts.each do |post|
+      tr
+        td= link_to post.title, post
+        td= post.description
+        td= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-3'
+        td= button_to '削除', post, method: :delete, data: { confirm: "回答を削除してよろしいですか？"}, class: 'btn btn-danger'
