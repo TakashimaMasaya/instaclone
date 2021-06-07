@@ -4,15 +4,21 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @post = Post.new
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   def edit
-
+    @post = Post.find(params[:id])
   end
 
   def destroy
-
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to posts_url, notice: "回答「#{post.title}」を削除しました。"
   end
 
   def create
@@ -25,7 +31,9 @@ class PostsController < ApplicationController
   end
 
   def update
-
+    post = Post.find(params[:id])
+    post.update!(post_params)
+    redirect_to posts_url, notice: "回答「#{post.title}」を更新しました。"
   end
 
   private
