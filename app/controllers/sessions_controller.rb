@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if @user = login(params[:email], params[:password])
-      render :new, notice: 'ログインしました'
+    if @user = login(user_params[:email],user_params[:password])
+      redirect_to posts_path, notice: 'ログインしました'
     else
       render :new, notice: 'ログインに失敗しました'
     end
@@ -16,5 +16,11 @@ class SessionsController < ApplicationController
   def destory
     logout
     redirect_to root_path, notice: 'ログアウトしました'
+  end
+
+  private
+  
+  def user_params
+     params.require(:session).permit(:id, :email, :password)
   end
 end
