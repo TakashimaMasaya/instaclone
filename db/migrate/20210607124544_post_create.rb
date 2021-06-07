@@ -1,8 +1,8 @@
-class CreatePosts < ActiveRecord::Migration[5.2]
+class PostCreate < ActiveRecord::Migration[5.2]
   def change
     create_table :posts do |t|
       t.string :title, null: false
-      t.string :description, null: false
+      t.text :description, null: false
       t.bigint :user_id
 
       t.timestamps
