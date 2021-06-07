@@ -32,13 +32,14 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    post.update!(post_params)
+    post.update(post_params)
     redirect_to posts_url, notice: "回答「#{post.title}」を更新しました。"
   end
 
   private
 
    def post_params
-    params.require(:post).permit(:title, :description)
+    params.require(:post).permit(:title, :avatar, :description)
+    # params.require(:post).permit(:title,{avatar: []}, :description)
   end
 end

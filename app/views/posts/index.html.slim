@@ -6,6 +6,7 @@ h1 回答一覧
 table.table.table-hover
   thead.thead-default
     tr
+      th
       th= Post.human_attribute_name(:title)
       th
       th
@@ -13,6 +14,14 @@ table.table.table-hover
   tbody
     - @posts.each do |post|
       tr
+        - if post.avatar?
+          td= image_tag post.avatar.url, class: 'post-image'
+          / - post.avatar.each do |avatar|
+          /   td= image_tag avatar.url, class: 'post-image'
+            / td= image_tag post.avatar[1].url, class: 'post-image'
+            / td= image_tag post.avatar[2].url, class: 'post-image'
+            / td= image_tag post.avatar[3].url, class: 'post-image'
+            / td= image_tag post.avatar[4].url, class: 'post-image'
         td= link_to post.title, post
         td= post.description
         td= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-3'

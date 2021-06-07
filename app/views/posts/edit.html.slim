@@ -10,6 +10,10 @@ h1 質問編集画面
   .form-group
     = f.label :description
     = f.text_area :description, rows:5, class: 'form-control', id: 'post_description'
+  .form-group
+    = f.label :avatar 
+    = f.file_field :avatar, multiple: true 
+    / = f.file_field :avatar, multiple: true 
   = f.submit nil, class: 'btn btn-primary'
 
 

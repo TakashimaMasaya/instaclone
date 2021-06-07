@@ -10,4 +10,9 @@ h1 投稿の新規登録
   .form-group
     = f.label :description
     = f.text_area :description, rows:5, class: 'form-control', id: 'post_description'
+  .form-group
+    = f.label :avatar
+    = f.file_field :avatar
+    / = f.file_field :avatar, multiple: true
+
   = f.submit nil, class: 'btn btn-primary'
