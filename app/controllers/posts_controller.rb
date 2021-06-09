@@ -38,8 +38,8 @@ class PostsController < ApplicationController
 
   private
 
-   def post_params
-    params.require(:post).permit(:title, :avatar, :description)
-    # params.require(:post).permit(:title,{avatar: []}, :description)
+  def post_params
+    params.require(:post).permit(:title, :images, :description)
+    # params.require(:post).permit(:title,{images: []}, :description)
   end
 end

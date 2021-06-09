@@ -13,8 +13,8 @@ table.table.table-hover
       th= Post.human_attribute_name(:description)
       td= @post.description
     tr
-      th= Post.human_attribute_name(:avatar)
-      td= @post.avatar
+      th= Post.human_attribute_name(:images)
+      / td= image_tag @post.images, class: 'post-image'
       
 
 

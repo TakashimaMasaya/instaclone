@@ -14,8 +14,9 @@ table.table.table-hover
   tbody
     - @posts.each do |post|
       tr
-        - if post.avatar?
-          td= image_tag post.avatar.url, class: 'post-image'
+        - if post.images?
+          td= image_tag post.images.url, class: 'post-image'
+          / td= image_tag post.avatar[1].url, class: 'post-image'
           / - post.avatar.each do |avatar|
           /   td= image_tag avatar.url, class: 'post-image'
             / td= image_tag post.avatar[1].url, class: 'post-image'

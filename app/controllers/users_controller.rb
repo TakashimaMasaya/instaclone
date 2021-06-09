@@ -1,4 +1,4 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
 
   def new
@@ -8,11 +8,13 @@ class UserController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to root_url
+      auto_login(@user)
+      redirect_to posts_url
     else
       render :new
     end
   end
+
 
   private
 
