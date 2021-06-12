@@ -1,29 +1,30 @@
-h1 回答一覧
-
-= link_to '新規登録', new_post_path, class: 'btn btn-primary'
-
-.mb-3
-table.table.table-hover
-  thead.thead-default
-    tr
-      th
-      th= Post.human_attribute_name(:title)
-      th
-      th
-      th
-  tbody
-    - @posts.each do |post|
-      tr
-        - if post.images?
-          td= image_tag post.images.url, class: 'post-image'
-          / td= image_tag post.avatar[1].url, class: 'post-image'
-          / - post.avatar.each do |avatar|
-          /   td= image_tag avatar.url, class: 'post-image'
-            / td= image_tag post.avatar[1].url, class: 'post-image'
-            / td= image_tag post.avatar[2].url, class: 'post-image'
-            / td= image_tag post.avatar[3].url, class: 'post-image'
-            / td= image_tag post.avatar[4].url, class: 'post-image'
-        td= link_to post.title, post
-        td= post.description
-        td= link_to '編集', edit_post_path(post), class: 'btn btn-primary mr-3'
-        td= button_to '削除', post, method: :delete, data: { confirm: "回答を削除してよろしいですか？"}, class: 'btn btn-danger'
+= link_to '新規投稿', '/posts/new'
+.container
+  .row
+    .col-md-8.col-12
+      = render @posts
+    .col-md-4.col-12
+      - if logged_in?
+        .profile-box.mb-3
+          / = image_tag 'profile-placeholder.png', size: '50x50', class: 'rounded-circle mr-1'
+          / - if post.user.username.present?
+          /   = post.user.username
+      .users-box
+        .card
+          .card-header
+            | ユーザー
+          .card-body
+            .user.mb-3
+              / = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミー京介
+            .user.mb-3
+              / = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミー寅泰
+            .user.mb-3
+              / = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミー常松
+            .user.mb-3
+              / = image_tag 'profile-placeholder.png', size: '40x40', class: 'rounded-circle mr-1'
+              | ダミーまこと
+          .card-footer
+            = link_to 'すべて見る', '#'

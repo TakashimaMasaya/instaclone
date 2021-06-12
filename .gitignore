@@ -17,6 +17,10 @@
 /storage/*
 !/storage/.keep
 
+/config/database.yml
+/vendor
+/public/uploads
+
 /node_modules
 /yarn-error.log
 

@@ -1,4 +1,8 @@
  Rails.application.routes.draw do
+  constraints ->(request) { request.session[:user_id].present? } do
+     # ログインしてる時のルートパス
+    root 'posts#index'
+  end
   root 'users#new'
   
   resources :users, only: %i[index create]
