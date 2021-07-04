@@ -20,6 +20,7 @@
 /config/database.yml
 /vendor
 /public/uploads
+dump.rdb
 
 /node_modules
 /yarn-error.log

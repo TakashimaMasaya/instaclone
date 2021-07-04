@@ -78,6 +78,7 @@ gem 'html2slim'
 gem 'annotate'
 gem 'carrierwave', '~> 2.0'
 gem 'font-awesome-sass'
+gem 'kaminari'
 
 gem 'rails-i18n'
 gem 'jquery-rails'
