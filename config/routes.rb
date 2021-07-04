@@ -6,6 +6,12 @@
   root 'users#new'
   
   resources :users, only: %i[index create]
+
+  resources :posts, shallow: true do
+    resources :comments
+  end
+  resources :likes, only: %i[create destroy]
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
