@@ -26,7 +26,7 @@
 #   end
 # end
 class SessionsController < ApplicationController
-  skip_before_action :require_login, only: [:new, :create]
+  # skip_before_action :require_login, only: [:new, :create]
 
   def index
     @user = User.new
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
       redirect_to posts_path, success: 'ログインしました'
     else
       flash.now[:danger] = 'ログインに失敗しました'
-      render :new
+      redirect_to login_path
     end
   end
 

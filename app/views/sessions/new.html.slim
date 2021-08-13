@@ -9,7 +9,7 @@
           = f.label :password, 'パスワード', class: 'bmd-label-floating'
           = f.password_field :password, class: 'form-control'
         = f.submit 'ログイン', class: 'btn btn-raised btn-primary'
-    /  .card
-    /    .card-body
-    /      | アカウントをお持ちでないですか？
-    /      = link_to '登録する', new_user_path
+    .card
+      .card-body
+        | アカウントをお持ちでないですか？
+        = link_to '登録する', new_user_path

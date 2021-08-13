@@ -1,6 +1,10 @@
-- if logged_in? && current_user.id != user.id
+- if logged_in?
   div id="follow-area-#{user.id}"
-    / - if current_user.following?(user)
-    /   = render 'users/unfollow', user: user
-    / - else
-    /   = render 'users/follow', user: user
+    - if current_user.following?(user)
+      = render 'users/unfollow', user: user
+    - else
+      = render 'users/follow', user: user
+
+
+/  && current_user.id != user.id　なぜかfalseになる
+
