@@ -83,4 +83,4 @@ gem 'kaminari'
 gem 'rails-i18n'
 gem 'jquery-rails'
 gem 'popper_js'
-gem 'letter_opener_web'
+

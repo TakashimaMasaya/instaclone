@@ -17,10 +17,12 @@
 @import 'bootstrap-material-design/dist/css/bootstrap-material-design.css';
 @import "font-awesome-sprockets";
 @import "font-awesome";
-// @import 'swiper/swiper-bundle';
+// @import 'swiper/swiper';
+@import 'header';
 body {
     position: relative;
     height: 100vh;
+    object-fit: cover;
 }
 
 main {
