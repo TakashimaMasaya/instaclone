@@ -6,4 +6,5 @@ class ActivitiesController < ApplicationController
     activity.read! if activity.unread?
     redirect_to activity.redirect_path
   end
+  
 end
