@@ -10,14 +10,65 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_03_082343) do
+ActiveRecord::Schema.define(version: 2021_08_20_060751) do
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb3", force: :cascade do |t|
+  create_table "activities", force: :cascade do |t|
+    t.integer "action_type", null: false
+    t.boolean "read", default: false, null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "subject_type"
+    t.integer "subject_id"
+    t.index ["subject_type", "subject_id"], name: "index_activities_on_subject_type_and_subject_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "post_id"
+    t.text "body", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "post_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "images"
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "followed_id"
+    t.integer "follower_id"
+    t.integer "followed_id_id"
+    t.integer "follower_id_id"
+    t.index ["followed_id_id"], name: "index_relationships_on_followed_id_id"
+    t.index ["follower_id_id"], name: "index_relationships_on_follower_id_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
