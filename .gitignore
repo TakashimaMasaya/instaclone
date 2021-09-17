@@ -17,6 +17,11 @@
 /storage/*
 !/storage/.keep
 
+/config/database.yml
+/vendor
+/public/uploads
+dump.rdb
+
 /node_modules
 /yarn-error.log
 
@@ -25,3 +30,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
