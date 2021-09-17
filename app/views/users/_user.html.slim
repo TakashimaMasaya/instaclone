@@ -1,4 +1,4 @@
-.user.mb-3.d-flex.justify-content-between
+.user.mb-3
   = link_to user_path(user) do
     - if user.avatar?
       = image_tag user.avatar.url, size: '40x40', class: 'rounded-circle mr-1'

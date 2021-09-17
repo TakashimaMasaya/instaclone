@@ -85,4 +85,5 @@ gem 'jquery-rails'
 gem 'popper_js'
 gem 'letter_opener_web'
 gem 'config'
-
+gem 'sidekiq'
+gem 'sinatra'

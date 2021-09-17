@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_20_060751) do
+ActiveRecord::Schema.define(version: 2021_09_17_053921) do
 
   create_table "activities", force: :cascade do |t|
     t.integer "action_type", null: false
@@ -69,6 +69,9 @@ ActiveRecord::Schema.define(version: 2021_08_20_060751) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "avatar"
+    t.boolean "notification_on_comment", default: true
+    t.boolean "notification_on_like", default: true
+    t.boolean "notification_on_follow", default: true
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
