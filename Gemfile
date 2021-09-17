@@ -6,7 +6,7 @@ ruby '2.6.6'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -33,12 +33,15 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'faker'
 end
 
 group :development do
@@ -48,6 +51,12 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'rubocop'
+  gem 'rubocop-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -65,3 +74,16 @@ gem 'sorcery'
 
 gem 'slim-rails'
 gem 'html2slim'
+
+gem 'annotate'
+gem 'carrierwave', '~> 2.0'
+gem 'font-awesome-sass'
+gem 'kaminari'
+
+gem 'rails-i18n'
+gem 'jquery-rails'
+gem 'popper_js'
+gem 'letter_opener_web'
+gem 'config'
+gem 'sidekiq'
+gem 'sinatra'

@@ -7,5 +7,16 @@ html
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag "https://unpkg.com/swiper/swiper-bundle.min.css"
+    = javascript_include_tag "https://unpkg.com/swiper/swiper-bundle.min.js"
   body
+    - if logged_in?
+      = render 'shared/header'
+    / - if logged_in?
+      = render 'shared/header'
+    / - else
+    /   = render 'shared/before_login_header'
+    / = render 'shared/flash_messages'
+  main
     = yield
+    = render 'shared/modal'
